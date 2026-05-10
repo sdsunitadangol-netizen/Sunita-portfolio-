@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunita Dangol | Nepal Travel Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* ============================================================
+     CSS VARIABLES & RESET
+  ============================================================ */
+  :root {
+    --green: #4a9b6f;
+    --green-dark: #357a55;
+    --green-light: #7ec8a0;
+    --sky: #c9b8e8;
+    --sky-light: #d4c5f0;
+    --orange: #F4A261;
+    --orange-dark: #e07b35;
+    --bg: #fdf6ec;
+    --text: #2C2C2C;
+    --text-muted: #6c757d;
+    --white: #ffffff;
+    --card-shadow: 0 8px 40px rgba(74,155,111,0.10);
+    --card-shadow-hover: 0 20px 60px rgba(74,155,111,0.18);
+    --border-radius: 18px;
+    --transition: all 0.38s cubic-bezier(.4,0,.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     SCROLLBAR
+  ============================================================ */
+  ::-webkit-scrollbar { width: 7px; }
+  ::-webkit-scrollbar-track { background: #e8f5f0; }
+  ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 10px; }
+
+  /* ============================================================
+     UTILITIES
+  ============================================================ */
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+  .section-tag {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(244,162,97,0.10);
+    border: 1px solid rgba(244,162,97,0.25);
+    padding: 5px 18px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-title span { color: var(--green); }
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin-bottom: 52px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    box-shadow: 0 6px 28px rgba(244,162,97,0.35);
+  }
+  .btn-primary:hover {
+    background: var(--orange-dark);
+    box-shadow: 0 10px 36px rgba(244,162,97,0.5);
+    transform: translateY(-2px);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.65);
+    backdrop-filter: blur(8px);
+  }
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: var(--white);
+    transform: translateY(-2px);
+  }
+  .btn-green {
+    background: var(--green);
+    color: var(--white);
+    box-shadow: 0 6px 28px rgba(74,155,111,0.3);
+  }
+  .btn-green:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 36px rgba(74,155,111,0.4);
+  }
+
+  /* fade-in on scroll */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-up-delay-1 { transition-delay: 0.1s; }
+  .fade-up-delay-2 { transition-delay: 0.2s; }
+  .fade-up-delay-3 { transition-delay: 0.3s; }
+  .fade-up-delay-4 { transition-delay: 0.4s; }
+  .fade-up-delay-5 { transition-delay: 0.5s; }
+
+  /* ============================================================
+     NAVBAR
+  ============================================================ */
+  #navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 18px 0;
+    transition: var(--transition);
+  }
+  #navbar.scrolled {
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 2px 24px rgba(74,155,111,0.10);
+    padding: 12px 0;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  #navbar.scrolled .nav-logo { color: var(--green); }
+  .nav-logo-icon {
+    width: 36px; height: 36px;
+    background: var(--orange);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+  }
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+  }
+  .nav-links a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.88);
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 2px;
+    background: var(--orange);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a:hover { color: var(--white); }
+  #navbar.scrolled .nav-links a { color: var(--text-muted); }
+  #navbar.scrolled .nav-links a:hover { color: var(--green); }
+  .nav-cta {
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 9px 24px;
+    border-radius: 50px;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 18px rgba(244,162,97,0.35);
+  }
+  .nav-cta:hover { background: var(--orange-dark) !important; transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  .hamburger span {
+    width: 24px; height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+  #navbar.scrolled .hamburger span { background: var(--text); }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(160deg, rgba(53,122,85,0.80) 0%, rgba(74,155,111,0.55) 40%, rgba(201,184,232,0.35) 100%),
+      url('https://images.unsplash.com/photo-1580289143186-03f54224aad6?w=1920&q=85&fit=crop') center/cover no-repeat;
+    transform: scale(1.04);
+    transition: transform 8s ease;
+  }
+  #hero:hover .hero-bg { transform: scale(1.0); }
+
+  /* Parallax canvas overlay */
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 120px 0 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .hero-left {}
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(244,162,97,0.15);
+    border: 1px solid rgba(244,162,97,0.3);
+    padding: 7px 18px;
+    border-radius: 50px;
+    margin-bottom: 22px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-tag-dot {
+    width: 6px; height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.6; }
+  }
+  .hero-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.08;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  .hero-tagline {
+    font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 26px;
+    letter-spacing: -0.3px;
+  }
+  .hero-desc {
+    font-size: 1.04rem;
+    color: rgba(255,255,255,0.80);
+    max-width: 480px;
+    margin-bottom: 40px;
+    line-height: 1.75;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* Hero right - stats card */
+  .hero-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .hero-stat-card {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 24px;
+    padding: 36px 30px;
+    width: 300px;
+    animation: float-card 5s ease-in-out infinite;
+  }
+  @keyframes float-card {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .hero-stat-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-stat-card h3::before {
+    content: '✦';
+    color: var(--orange);
+    font-size: 0.9rem;
+  }
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .stat-item:last-child { border-bottom: none; }
+  .stat-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(244,162,97,0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--orange);
+    flex-shrink: 0;
+  }
+  .stat-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .stat-label {
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.65);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: bounce-indicator 2.5s ease-in-out infinite;
+  }
+  @keyframes bounce-indicator {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.65; }
+    50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+  }
+  .scroll-indicator-line {
+    width: 1px; height: 48px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+  }
+
+  /* ============================================================
+     ABOUT
+  ============================================================ */
+  #about {
+    padding: 110px 0;
+    background: var(--white);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 70px;
+    align-items: center;
+  }
+  .about-image-wrap {
+    position: relative;
+  }
+  .about-img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, #f5edd8 0%, #ede5f0 50%, #ddd5ec 100%);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: var(--green);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    position: relative;
+  }
+  .about-img-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(74,155,111,0.12), transparent 70%);
+  }
+  .about-img-placeholder i { font-size: 3.5rem; opacity: 0.5; }
+  .about-img-badge {
+    position: absolute;
+    bottom: 24px;
+    right: -20px;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 18px 22px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 8px 32px rgba(244,162,97,0.4);
+    text-align: center;
+  }
+  .about-img-badge .badge-num {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+    display: block;
+  }
+  .about-img-badge .badge-text {
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.9;
+    letter-spacing: 0.08em;
+  }
+  .about-img-badge2 {
+    position: absolute;
+    top: 28px;
+    left: -20px;
+    background: var(--white);
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 8px 32px rgba(74,155,111,0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .about-img-badge2 i { color: var(--green); font-size: 1.3rem; }
+  .about-img-badge2 span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .about-text .section-subtitle { margin-bottom: 28px; }
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--bg);
+    border-radius: 14px;
+    padding: 16px 18px;
+    transition: var(--transition);
+  }
+  .about-feature:hover {
+    background: #edf7f3;
+    transform: translateX(5px);
+  }
+  .about-feature-icon {
+    width: 40px; height: 40px;
+    background: rgba(74,155,111,0.12);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .about-feature-text h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .about-feature-text p { font-size: 0.83rem; color: var(--text-muted); }
+  .about-languages {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .lang-chip {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background: rgba(201,184,232,0.1);
+    color: var(--sky);
+    border: 1px solid rgba(201,184,232,0.25);
+  }
+
+  /* ============================================================
+     SERVICES
+  ============================================================ */
+  #services {
+    padding: 110px 0;
+    background: var(--bg);
+  }
+  .services-header { text-align: center; }
+  .services-header .section-subtitle { margin: 0 auto 52px; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 36px 28px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    border: 1px solid transparent;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--sky));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: rgba(74,155,111,0.08);
+  }
+  .service-icon {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(74,155,111,0.10), rgba(201,184,232,0.08));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 22px;
+    transition: var(--transition);
+  }
+  .service-card:hover .service-icon {
+    background: linear-gradient(135deg, var(--green), var(--sky));
+    transform: scale(1.05) rotate(-5deg);
+  }
+  .service-card:hover .service-icon i { color: white !important; }
+  .service-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.08rem;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .service-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+  .service-card-tag {
+    display: inline-block;
+    margin-top: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ============================================================
+     STATS / COUNTER
+  ============================================================ */
+  #stats {
+    padding: 90px 0;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 60%, #1f4d32 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  #stats::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,184,232,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  #stats::after {
+    content: '';
+    position: absolute;
+    bottom: -30%; left: -5%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(244,162,97,0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .stat-box {
+    text-align: center;
+    padding: 36px 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: var(--transition);
+  }
+  .stat-box:hover {
+    background: rgba(255,255,255,0.13);
+    transform: translateY(-5px);
+  }
+  .stat-box-icon {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .stat-box-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .stat-box-num span { color: var(--orange); }
+  .stat-box-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.70);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ============================================================
+     PORTFOLIO / GALLERY
+  ============================================================ */
+  #portfolio {
+    padding: 110px 0;
+    background: var(--white);
+  }
+  .portfolio-header { text-align: center; }
+  .portfolio-header .section-subtitle { margin: 0 auto 52px; }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 18px;
+  }
+  .portfolio-item {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+  .portfolio-item.tall { grid-row: span 2; aspect-ratio: unset; }
+  .portfolio-item.wide { grid-column: span 2; }
+  .portfolio-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    background: linear-gradient(135deg, #c0e5d7 0%, #89c8b0 50%, #5ba88e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--green-dark);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: transform 0.5s ease;
+  }
+  .portfolio-item:hover .portfolio-img { transform: scale(1.07); }
+  .portfolio-img i { font-size: 2.5rem; opacity: 0.5; }
+  .portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(21,90,72,0.92) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+  }
+  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+  .portfolio-overlay h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .portfolio-overlay p { font-size: 0.8rem; color: rgba(255,255,255,0.72); }
+  .portfolio-overlay-tag {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 6px;
+  }
+
+  /* ============================================================
+     TESTIMONIALS
+  ============================================================ */
+  #testimonials {
+    padding: 110px 0;
+    background: var(--bg);
+  }
+  .testimonials-header { text-align: center; }
+  .testimonials-header .section-subtitle { margin: 0 auto 52px; }
+  .testimonials-track-wrap {
+    overflow: hidden;
+    position: relative;
+  }
+  .testimonials-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+  }
+  .testimonial-card {
+    flex: 0 0 calc(33.333% - 16px);
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 36px 30px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    transition: var(--transition);
+  }
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+  }
+  .testimonial-quote-icon {
+    font-size: 2.8rem;
+    color: rgba(74,155,111,0.12);
+    font-family: Georgia, serif;
+    line-height: 1;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .testimonial-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 26px;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .testimonial-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green), var(--sky));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .testimonial-author-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .testimonial-author-info { font-size: 0.78rem; color: var(--text-muted); }
+  .testimonial-stars {
+    position: absolute;
+    top: 28px; right: 28px;
+    color: #f59e0b;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+  .testimonial-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .testimonial-nav button {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--green);
+    background: transparent;
+    color: var(--green);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .testimonial-nav button:hover {
+    background: var(--green);
+    color: white;
+    transform: scale(1.08);
+  }
+  .testimonial-dots {
+    display: flex;
+    gap: 8px;
+  }
+  .testimonial-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(74,155,111,0.25);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .testimonial-dot.active {
+    background: var(--green);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  /* ============================================================
+     VISION
+  ============================================================ */
+  #vision {
+    padding: 90px 0;
+    background: linear-gradient(135deg, #f0fbf7 0%, #e6f5ef 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .vision-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .vision-text {}
+  .vision-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+    color: var(--green);
+    line-height: 1.5;
+    padding-left: 28px;
+    border-left: 4px solid var(--orange);
+    margin: 28px 0;
+  }
+  .vision-map {
+    background: white;
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+  }
+  .vision-map-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #e8f5f0, #d0e8f5);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--green);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .vision-map-img i { font-size: 3rem; opacity: 0.4; }
+  .vision-destinations {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .dest-tag {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 50px;
+    background: rgba(74,155,111,0.10);
+    color: var(--green);
+    border: 1px solid rgba(74,155,111,0.18);
+  }
+
+  /* ============================================================
+     CONTACT
+  ============================================================ */
+  #contact {
+    padding: 110px 0;
+    background: var(--white);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .contact-info {}
+  .contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(74,155,111,0.10);
+  }
+  .contact-info-item:last-child { border-bottom: none; }
+  .contact-info-icon {
+    width: 48px; height: 48px;
+    background: rgba(74,155,111,0.10);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .contact-info-text h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .contact-info-text a, .contact-info-text p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .contact-info-text a:hover { color: var(--green); }
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    margin-top: 28px;
+    transition: var(--transition);
+    box-shadow: 0 6px 24px rgba(37,211,102,0.30);
+  }
+  .whatsapp-btn:hover {
+    background: #1ead57;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(37,211,102,0.40);
+  }
+  .contact-form {
+    background: var(--bg);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(74,155,111,0.07);
+  }
+  .contact-form h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 13px 18px;
+    border: 1.5px solid rgba(74,155,111,0.15);
+    border-radius: 12px;
+    background: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: var(--transition);
+    outline: none;
+    appearance: none;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(74,155,111,0.08);
+  }
+  .form-group textarea { height: 130px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-submit-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: var(--green);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 6px 24px rgba(74,155,111,0.30);
+    margin-top: 8px;
+  }
+  .form-submit-btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(74,155,111,0.40);
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  footer {
+    background: #1a3222;
+    color: rgba(255,255,255,0.75);
+    padding: 70px 0 30px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+  }
+  .footer-brand h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .footer-brand p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 24px; }
+  .social-links { display: flex; gap: 12px; }
+  .social-link {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.95rem;
+  }
+  .social-link:hover {
+    background: var(--green);
+    color: white;
+    transform: translateY(-3px);
+  }
+  .footer-col h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.60);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .footer-col ul li a::before {
+    content: '→';
+    color: var(--orange);
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: var(--transition);
+  }
+  .footer-col ul li a:hover { color: white; padding-left: 5px; }
+  .footer-col ul li a:hover::before { opacity: 1; transform: translateX(0); }
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+  }
+  .footer-bottom a { color: var(--orange); text-decoration: none; }
+
+  /* ============================================================
+     MOBILE NAV MENU
+  ============================================================ */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(26,58,36,0.97);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    transition: var(--transition);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .mobile-menu a:hover { color: var(--orange); }
+  .mobile-close {
+    position: absolute;
+    top: 24px; right: 28px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .testimonial-card { flex: 0 0 calc(50% - 12px); }
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-content { grid-template-columns: 1fr; gap: 40px; }
+    .hero-right { justify-content: center; }
+    .hero-stat-card { width: 100%; max-width: 340px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-img-badge { right: 10px; }
+    .about-img-badge2 { left: 10px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-item.tall { grid-row: auto; aspect-ratio: 4/3; }
+    .portfolio-item.wide { grid-column: auto; }
+    .vision-inner { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .testimonial-card { flex: 0 0 calc(100% - 0px); }
+    .form-row { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <div class="nav-logo-icon">🏔</div>
+        Sunita Dangol
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Destinations</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Plan Your Trip</a></li>
+      </ul>
+      <div class="hamburger" onclick="openMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()">✕</button>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#portfolio" onclick="closeMenu()">Destinations</a>
+  <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <canvas id="hero-canvas"></canvas>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-tag fade-up">
+          <div class="hero-tag-dot"></div>
+          Nepal's Inbound Travel Specialist
+        </div>
+        <h1 class="hero-name fade-up fade-up-delay-1">Sunita Dangol</h1>
+        <p class="hero-title fade-up fade-up-delay-2">Tour Operator · Nepal Travel Expert</p>
+        <p class="hero-tagline fade-up fade-up-delay-2">Explore Nature, Experience Nepal 🏔</p>
+        <p class="hero-desc fade-up fade-up-delay-3">
+          Over 10 years of crafting unforgettable journeys across Nepal — from the majestic Himalayas to ancient spiritual temples. Trusted by thousands of travelers from India, Bangladesh, and beyond.
+        </p>
+        <div class="hero-btns fade-up fade-up-delay-4">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Plan Your Trip
+          </a>
+          <a href="#portfolio" class="btn btn-outline">
+            <i class="fas fa-images"></i> View Destinations
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right fade-up fade-up-delay-3">
+        <div class="hero-stat-card">
+          <h3>Quick Highlights</h3>
+          <div class="stat-item">
+            <div class="stat-icon">🗓️</div>
+            <div>
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">😊</div>
+            <div>
+              <div class="stat-num">12K+</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🗺️</div>
+            <div>
+              <div class="stat-num">800+</div>
+              <div class="stat-label">Tours Completed</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🌏</div>
+            <div>
+              <div class="stat-num">3</div>
+              <div class="stat-label">Destinations Covered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-indicator-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap fade-up">
+        <div class="about-img-placeholder">
+          <i class="fas fa-user-circle"></i>
+          <span>Sunita Dangol</span>
+          <small style="opacity:0.6;font-size:0.78rem">[ Profile Photo Placeholder ]</small>
+        </div>
+        <div class="about-img-badge">
+          <span class="badge-num">10+</span>
+          <span class="badge-text">Years in Tourism</span>
+        </div>
+        <div class="about-img-badge2">
+          <i class="fas fa-star"></i>
+          <span>Top Rated Expert</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <span class="section-tag fade-up">About Me</span>
+        <h2 class="section-title fade-up fade-up-delay-1">Passionate About <span>Nepal's</span> Beauty</h2>
+        <p class="section-subtitle fade-up fade-up-delay-2">
+          I am a passionate travel professional with over 10 years of experience in Nepal's tourism industry, specializing in inbound tours for clients from India and Bangladesh.
+        </p>
+
+        <div class="about-features">
+          <div class="about-feature fade-up fade-up-delay-1">
+            <div class="about-feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <div class="about-feature-text">
+              <h4>Personalized Itineraries</h4>
+              <p>Every trip is crafted around your unique interests, budget, and travel style.</p>
+            </div>
+          </div>
+          <div class="about-feature fade-up fade-up-delay-2">
+            <div class="about-feature-icon"><i class="fas fa-handshake"></i></div>
+            <div class="about-feature-text">
+              <h4>Strong Local Network</h4>
+              <p>Trusted partnerships with hotels, transport providers, and local guides across Nepal.</p>
+            </div>
+          </div>
+          <div class="about-feature fade-up fade-up-delay-3">
+            <div class="about-feature-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="about-feature-text">
+              <h4>Safe & Smooth Travel</h4>
+              <p>Complete coordination from airport arrival to departure, worry-free travel guaranteed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up fade-up-delay-4">
+          <p style="font-size:0.82rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Languages</p>
+          <div class="about-languages">
+            <span class="lang-chip">🇬🇧 English</span>
+            <span class="lang-chip">🇮🇳 Hindi</span>
+            <span class="lang-chip">🇳🇵 Nepali</span>
+          </div>
+        </div>
+        <br>
+        <a href="#contact" class="btn btn-green fade-up fade-up-delay-5">
+          <i class="fas fa-envelope"></i> Get In Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-tag fade-up">What I Offer</span>
+      <h2 class="section-title fade-up fade-up-delay-1">Travel Services <span>Tailored</span> For You</h2>
+      <p class="section-subtitle fade-up fade-up-delay-2">
+        From intimate honeymoon escapes to large group expeditions, I manage every detail so you can simply enjoy the journey.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card fade-up fade-up-delay-1">
+        <div class="service-icon"><i class="fas fa-users" style="color:var(--green)"></i></div>
+        <h3>Group Tours (GIT)</h3>
+        <p>Well-organized group travel with complete coordination — transport, accommodation, guides, and activities all handled seamlessly.</p>
+        <span class="service-card-tag">→ Learn More</span>
+      </div>
+      <div class="service-card fade-up fade-up-delay-2">
+        <div class="service-icon"><i class="fas fa-user" style="color:var(--sky)"></i></div>
+        <h3>FIT Private Tours</h3>
+        <p>Customized private travel experiences built entirely around your schedule, preferences, and budget — complete freedom.</p>
+        <span class="service-card-tag">→ Learn More</span>
+      </div>
+      <div class="service-card fade-up fade-up-delay-3">
+        <div class="service-icon"><i class="fas fa-heart" style="color:#e07b8a"></i></div>
+        <h3>Honeymoon Packages</h3>
+        <p>Romantic escapes crafted for couples — from Pokhara's lakeside sunsets to luxury mountain retreats in the Himalayas.</p>
+        <span class="service-card-tag">→ Learn More</span>
+      </div>
+      <div class="service-card fade-up fade-up-delay-1">
+        <div class="service-icon"><i class="fas fa-pray" style="color:var(--orange)"></i></div>
+        <h3>Pilgrimage Tours</h3>
+        <p>Spiritual journeys to Nepal's holiest sites — Muktinath, Pashupatinath, Lumbini, and Manakamana — with full religious support.</p>
+        <span class="service-card-tag">→ Learn More</span>
+      </div>
+      <div class="service-card fade-up fade-up-delay-2">
+        <div class="service-icon"><i class="fas fa-home" style="color:var(--green-light)"></i></div>
+        <h3>Family Tours</h3>
+        <p>Comfortable, enjoyable, and memorable trips for the whole family with child-friendly itineraries and safe arrangements.</p>
+        <span class="service-card-tag">→ Learn More</span>
+      </div>
+      <div class="service-card fade-up fade-up-delay-3">
+        <div class="service-icon"><i class="fas fa-briefcase" style="color:var(--sky)"></i></div>
+        <h3>Corporate / MICE</h3>
+        <p>Professional event and business travel management — conferences, team retreats, and incentive trips handled with precision.</p>
+        <span class="service-card-tag">→ Learn More</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS
+============================================================ -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-box fade-up fade-up-delay-1">
+        <span class="stat-box-icon">🗓️</span>
+        <span class="stat-box-num">10+</span>
+        <span class="stat-box-label">Years of Experience</span>
+      </div>
+      <div class="stat-box fade-up fade-up-delay-2">
+        <span class="stat-box-icon">😊</span>
+        <span class="stat-box-num">12K+</span>
+        <span class="stat-box-label">Happy Clients</span>
+      </div>
+      <div class="stat-box fade-up fade-up-delay-3">
+        <span class="stat-box-icon">🗺️</span>
+        <span class="stat-box-num">800+</span>
+        <span class="stat-box-label">Tours Completed</span>
+      </div>
+      <div class="stat-box fade-up fade-up-delay-4">
+        <span class="stat-box-icon">🌏</span>
+        <span class="stat-box-num">3</span>
+        <span class="stat-box-label">Destinations Covered</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO
+============================================================ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <span class="section-tag fade-up">Destinations</span>
+      <h2 class="section-title fade-up fade-up-delay-1">Nepal's <span>Most Loved</span> Places</h2>
+      <p class="section-subtitle fade-up fade-up-delay-2">
+        Every destination tells a different story. From snow-capped peaks to serene valleys, I've guided travelers through Nepal's most breathtaking locations.
+      </p>
+    </div>
+
+    <div class="portfolio-grid fade-up fade-up-delay-1">
+      <!-- Kathmandu - tall -->
+      <div class="portfolio-item tall">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#b8d8c8,#7ab5a0,#4d8f7a)">
+          <i class="fas fa-gopuram"></i>
+          <span>Kathmandu Valley</span>
+        </div>
+        <div class="portfolio-overlay">
+          <div>
+            <span class="portfolio-overlay-tag">🏛 Cultural Capital</span>
+            <h3>Kathmandu</h3>
+            <p>Ancient temples, UNESCO heritage sites & vibrant city life</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pokhara -->
+      <div class="portfolio-item">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#b8d5e8,#7ab0d0,#4d8baf)">
+          <i class="fas fa-water"></i>
+          <span>Pokhara</span>
+        </div>
+        <div class="portfolio-overlay">
+          <div>
+            <span class="portfolio-overlay-tag">🏞 Lake City</span>
+            <h3>Pokhara</h3>
+            <p>Fewa Lake, mountain views & paragliding adventures</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chitwan -->
+      <div class="portfolio-item">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#c8d8a0,#98b860,#6a8f35)">
+          <i class="fas fa-paw"></i>
+          <span>Chitwan</span>
+        </div>
+        <div class="portfolio-overlay">
+          <div>
+            <span class="portfolio-overlay-tag">🌿 Wildlife Safari</span>
+            <h3>Chitwan</h3>
+            <p>National park, rhinos, elephants & jungle experiences</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Muktinath - wide -->
+      <div class="portfolio-item wide">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#d8c0a8,#b89070,#8a6040)">
+          <i class="fas fa-mountain"></i>
+          <span>Muktinath</span>
+        </div>
+        <div class="portfolio-overlay">
+          <div>
+            <span class="portfolio-overlay-tag">🙏 Sacred Pilgrimage</span>
+            <h3>Muktinath Temple</h3>
+            <p>3,710m altitude pilgrimage site sacred to both Hindus & Buddhists</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lumbini -->
+      <div class="portfolio-item">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#e8d8a8,#c8b070,#a08040)">
+          <i class="fas fa-dharmachakra"></i>
+          <span>Lumbini</span>
+        </div>
+        <div class="portfolio-overlay">
+          <div>
+            <span class="portfolio-overlay-tag">☮️ Birthplace of Buddha</span>
+            <h3>Lumbini</h3>
+            <p>UNESCO World Heritage Site & spiritual center of Buddhism</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Everest Region -->
+      <div class="portfolio-item">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#d0d8e8,#a0b0c8,#6a80a8)">
+          <i class="fas fa-mountain"></i>
+          <span>Everest Region</span>
+        </div>
+        <div class="portfolio-overlay">
+          <div>
+            <span class="portfolio-overlay-tag">🏔 Roof of the World</span>
+            <h3>Everest Base Camp</h3>
+            <p>Iconic Himalayan trekking to the world's highest peak</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="section-tag fade-up">Client Reviews</span>
+      <h2 class="section-title fade-up fade-up-delay-1">What Travelers <span>Say About</span> Us</h2>
+      <p class="section-subtitle fade-up fade-up-delay-2">
+        Real stories from real travelers. Every review is a memory I helped create.
+      </p>
+    </div>
+
+    <div class="testimonials-track-wrap fade-up fade-up-delay-2">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-card">
+          <span class="testimonial-quote-icon">"</span>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">My Nepal trip was perfectly managed. Everything was smooth and well organized — from airport pick-up to hotel check-in. Sunita handled every detail with such professionalism. Highly recommend!</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RK</div>
+            <div>
+              <div class="testimonial-author-name">Rahul Kumar</div>
+              <div class="testimonial-author-info">Delhi, India · Group Tour</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-icon">"</span>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">Excellent service and very helpful throughout the journey. Our pilgrimage to Muktinath was spiritually fulfilling and logistically flawless. Sunita's knowledge of the region is outstanding.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PS</div>
+            <div>
+              <div class="testimonial-author-name">Priya Sharma</div>
+              <div class="testimonial-author-info">Mumbai, India · Pilgrimage Tour</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-icon">"</span>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">Highly recommended for Nepal tours, especially for Indian travelers. Our honeymoon package was magical — Pokhara at sunset, the Annapurna views… absolutely breathtaking memories.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div>
+              <div class="testimonial-author-name">Ananya & Mihir</div>
+              <div class="testimonial-author-info">Kolkata, India · Honeymoon Package</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-icon">"</span>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">We came from Bangladesh with a large family group and were nervous about coordination. Sunita managed everything perfectly — transport, meals, accommodations. A truly stress-free experience!</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">FA</div>
+            <div>
+              <div class="testimonial-author-name">Farhan Ahmed</div>
+              <div class="testimonial-author-info">Dhaka, Bangladesh · Family Tour</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote-icon">"</span>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">Professional, responsive, and genuinely caring about the travel experience. Our corporate retreat was organized perfectly. The team at Regulus Trek really goes above and beyond.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SB</div>
+            <div>
+              <div class="testimonial-author-name">Sanjay Bose</div>
+              <div class="testimonial-author-info">Pune, India · Corporate Tour</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-nav fade-up">
+      <button onclick="slideTestimonials(-1)" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="testimonial-dots" id="testimonialDots">
+        <div class="testimonial-dot active" onclick="goToSlide(0)"></div>
+        <div class="testimonial-dot" onclick="goToSlide(1)"></div>
+        <div class="testimonial-dot" onclick="goToSlide(2)"></div>
+      </div>
+      <button onclick="slideTestimonials(1)" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VISION
+============================================================ -->
+<section id="vision">
+  <div class="container">
+    <div class="vision-inner">
+      <div class="vision-text fade-up">
+        <span class="section-tag">My Vision</span>
+        <h2 class="section-title">Making Nepal a <span>World-Loved</span> Destination</h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.75;margin-bottom:28px">
+          Travel is not just about visiting places — it's about creating lifelong memories. Every client who returns home with stories of Nepal's mountains, temples, and warmth is my greatest achievement.
+        </p>
+        <a href="#contact" class="btn btn-green">
+          <i class="fas fa-compass"></i> Start Your Journey
+        </a>
+      </div>
+
+      <div class="vision-map fade-up fade-up-delay-2">
+        <div class="vision-map-img">
+          <i class="fas fa-map-marked-alt"></i>
+          <span>Nepal Travel Map</span>
+          <small style="opacity:0.55;font-size:0.76rem">[ Map Image Placeholder ]</small>
+        </div>
+        <div class="vision-destinations">
+          <span class="dest-tag">🏛 Kathmandu</span>
+          <span class="dest-tag">🏞 Pokhara</span>
+          <span class="dest-tag">🌿 Chitwan</span>
+          <span class="dest-tag">🙏 Muktinath</span>
+          <span class="dest-tag">☮️ Lumbini</span>
+          <span class="dest-tag">🏔 Everest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:60px">
+      <span class="section-tag fade-up">Get In Touch</span>
+      <h2 class="section-title fade-up fade-up-delay-1">Ready to <span>Explore Nepal?</span></h2>
+      <p class="section-subtitle fade-up fade-up-delay-2" style="margin:0 auto">Let's plan your perfect Nepal trip together. Reach out and I'll respond within 24 hours.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="fade-up fade-up-delay-1">
+        <span class="section-tag">Contact Details</span>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:8px;color:var(--text)">Sunita Dangol</h3>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:28px">Tour Operator · GoNepal Explore</p>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-info-text">
+            <h4>Location</h4>
+            <p>Kathmandu, Nepal 🇳🇵</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-info-text">
+            <h4>Phone / WhatsApp</h4>
+            <a href="tel:+9779808507929">+977 9808507929</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-info-text">
+            <h4>Email</h4>
+            <a href="mailto:sd.sunitadangol@gmail.com">sd.sunitadangol@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-building"></i></div>
+          <div class="contact-info-text">
+            <h4>Company</h4>
+            <p>GoNepal Explore</p>
+          </div>
+        </div>
+
+        <a href="https://wa.me/9779851048721" class="whatsapp-btn" target="_blank">
+          <i class="fab fa-whatsapp" style="font-size:1.3rem"></i>
+          Chat on WhatsApp
+        </a>
+      </div>
+
+      <div class="contact-form fade-up fade-up-delay-2">
+        <h3>✉️ Send Me a Message</h3>
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone / WhatsApp</label>
+              <input type="tel" placeholder="+91 or +880...">
+            </div>
+            <div class="form-group">
+              <label>Tour Type</label>
+              <select>
+                <option>Group Tour (GIT)</option>
+                <option>Private Tour (FIT)</option>
+                <option>Honeymoon Package</option>
+                <option>Pilgrimage Tour</option>
+                <option>Family Tour</option>
+                <option>Corporate / MICE</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Travel Dates</label>
+            <input type="text" placeholder="e.g. October 15–22, 2025">
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell me about your travel plans, group size, budget, and any special requirements..."></textarea>
+          </div>
+          <button type="submit" class="form-submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🏔 Sunita Dangol</h3>
+        <p>Nepal's trusted inbound travel specialist with over 10 years of creating unforgettable journeys. Based in Kathmandu, serving travelers from India, Bangladesh, and beyond.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/9779851048721" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Group Tours (GIT)</a></li>
+          <li><a href="#services">FIT Private Tours</a></li>
+          <li><a href="#services">Honeymoon Packages</a></li>
+          <li><a href="#services">Pilgrimage Tours</a></li>
+          <li><a href="#services">Family Tours</a></li>
+          <li><a href="#services">Corporate / MICE</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="#portfolio">Kathmandu</a></li>
+          <li><a href="#portfolio">Pokhara</a></li>
+          <li><a href="#portfolio">Chitwan</a></li>
+          <li><a href="#portfolio">Muktinath</a></li>
+          <li><a href="#portfolio">Lumbini</a></li>
+          <li><a href="#portfolio">Everest Region</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#testimonials">Client Reviews</a></li>
+          <li><a href="#vision">My Vision</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Sunita Dangol · Nepal Travel Expert. All rights reserved.</span>
+      <span>Made with ❤️ for Nepal Tourism</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  /* ---- Navbar scroll effect ---- */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ---- Mobile menu ---- */
+  function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+  /* ---- Scroll fade-in observer ---- */
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+
+  /* ---- Animated counters ---- */
+  function animateCounter(el, target, duration = 1800) {
+    let start = 0;
+    const step = Math.ceil(target / (duration / 16));
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      el.textContent = start;
+      if (start >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  const statsSection = document.getElementById('stats');
+  let countersAnimated = false;
+  const statsObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !countersAnimated) {
+      countersAnimated = true;
+      document.querySelectorAll('.stat-box').forEach(box => {
+        const target = parseInt(box.dataset.target);
+        const counterEl = box.querySelector('.counter');
+        animateCounter(counterEl, target);
+      });
+    }
+  }, { threshold: 0.3 });
+  statsObserver.observe(statsSection);
+
+  /* ---- Testimonials slider ---- */
+  let currentSlide = 0;
+  const track = document.getElementById('testimonialsTrack');
+  const dots = document.querySelectorAll('.testimonial-dot');
+
+  function getVisibleCount() {
+    return window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  }
+
+  function updateSlider() {
+    const cards = track.querySelectorAll('.testimonial-card');
+    const totalSlides = cards.length - getVisibleCount();
+    currentSlide = Math.max(0, Math.min(currentSlide, totalSlides));
+    const cardWidth = cards[0].offsetWidth + 24;
+    track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+  }
+
+  function slideTestimonials(dir) {
+    const cards = track.querySelectorAll('.testimonial-card');
+    const totalSlides = cards.length - getVisibleCount();
+    currentSlide = (currentSlide + dir + totalSlides + 1) % (totalSlides + 1);
+    updateSlider();
+  }
+
+  function goToSlide(n) {
+    currentSlide = n;
+    updateSlider();
+  }
+
+  window.addEventListener('resize', updateSlider);
+
+  /* Auto-advance */
+  setInterval(() => slideTestimonials(1), 5500);
+
+  /* ---- Hero canvas — floating particles ---- */
+  (function initHeroCanvas() {
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * W;
+        this.y = Math.random() * H + H;
+        this.r = Math.random() * 2.5 + 0.5;
+        this.speed = Math.random() * 0.5 + 0.2;
+        this.opacity = Math.random() * 0.5 + 0.15;
+        this.drift = (Math.random() - 0.5) * 0.4;
+      }
+      update() {
+        this.y -= this.speed;
+        this.x += this.drift;
+        if (this.y < -10) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 80; i++) {
+      const p = new Particle();
+      p.y = Math.random() * H; // spread initially
+      particles.push(p);
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+
+  /* ---- Parallax hero bg on scroll ---- */
+  const heroBg = document.querySelector('.hero-bg');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    if (scrolled < window.innerHeight) {
+      heroBg.style.transform = `scale(1.04) translateY(${scrolled * 0.25}px)`;
+    }
+  });
+
+  /* ---- Form submit handler ---- */
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit-btn');
+    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent! I\'ll reply soon.';
+    btn.style.background = '#25D366';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      btn.style.background = '';
+      e.target.reset();
+    }, 4000);
+  }
+
+  /* ---- Init visible elements in view ---- */
+  window.addEventListener('load', () => {
+    fadeEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  });
+</script>
+</body>
+</html>
