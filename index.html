@@ -1036,11 +1036,11 @@ footer {
       <div class="fade-up">
         <span class="hero-eyebrow">Nepal Travel Expert</span>
         <h1 class="hero-name">Sunita<br>Dangol</h1>
-        <p class="hero-tagline">Nepal, Personally Crafted.</p>
-        <p class="hero-subtitle">Your trusted travel expert for unforgettable journeys across Nepal, serving travelers from India, Bangladesh, and beyond since 2014.</p>
+        <p class="hero-tagline">Your Nepal Journey, Personally Planned.</p>
+        <p class="hero-subtitle">I have been designing private tours across Nepal since 2014 for travelers from around the world. Every itinerary is built around you, your pace, your interests and the experience you actually want.</p>
         <div class="hero-btns">
           <a href="#contact" class="btn btn-primary">Plan Your Trip</a>
-          <a href="#destinations" class="btn btn-outline">View Destinations</a>
+          <a href="#destinations" class="btn btn-outline">Explore Nepal</a>
         </div>
       </div>
 
@@ -1116,6 +1116,14 @@ footer {
           </circle>
           <text x="204" y="280" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Lumbini</text>
 
+          <!-- Location dot: Chitwan -->
+          <circle cx="225" cy="265" r="5" fill="#607274"/>
+          <circle cx="225" cy="265" r="5" fill="none" stroke="#607274" stroke-width="1.5">
+            <animate attributeName="r" from="5" to="17" dur="2.3s" begin="2.8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" from="0.7" to="0" dur="2.3s" begin="2.8s" repeatCount="indefinite"/>
+          </circle>
+          <text x="232" y="262" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Chitwan</text>
+
           <!-- Plane orbit path -->
           <ellipse cx="200" cy="235" rx="172" ry="57" fill="none" stroke="#C8862A" stroke-width="1" stroke-dasharray="5,5" opacity="0.30" id="porbit"/>
 
@@ -1127,37 +1135,6 @@ footer {
             <text font-size="18" fill="#C8862A" text-anchor="middle" dominant-baseline="central">&#x2708;</text>
           </g>
 
-          <!-- Floating stat cards (with drop shadow group) -->
-          <g filter="url(#fShadow)">
-            <!-- Top-left -->
-            <g>
-              <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="3.2s" repeatCount="indefinite"/>
-              <rect x="6" y="150" width="86" height="52" rx="10" fill="white" stroke="#f0ebe1" stroke-width="1"/>
-              <text x="49" y="170" font-size="15" font-weight="900" text-anchor="middle" fill="#C8862A" font-family="Poppins,sans-serif">10+</text>
-              <text x="49" y="187" font-size="8" text-anchor="middle" fill="#4a5568" font-family="Poppins,sans-serif">Years Expert</text>
-            </g>
-            <!-- Top-right -->
-            <g>
-              <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="3.8s" begin="0.6s" repeatCount="indefinite"/>
-              <rect x="308" y="150" width="86" height="52" rx="10" fill="white" stroke="#f0ebe1" stroke-width="1"/>
-              <text x="351" y="170" font-size="15" font-weight="900" text-anchor="middle" fill="#C8862A" font-family="Poppins,sans-serif">800+</text>
-              <text x="351" y="187" font-size="8" text-anchor="middle" fill="#4a5568" font-family="Poppins,sans-serif">Tours Done</text>
-            </g>
-            <!-- Bottom-left -->
-            <g>
-              <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="4.2s" begin="1.2s" repeatCount="indefinite"/>
-              <rect x="6" y="318" width="86" height="52" rx="10" fill="white" stroke="#f0ebe1" stroke-width="1"/>
-              <text x="49" y="338" font-size="15" font-weight="900" text-anchor="middle" fill="#607274" font-family="Poppins,sans-serif">12K+</text>
-              <text x="49" y="355" font-size="8" text-anchor="middle" fill="#4a5568" font-family="Poppins,sans-serif">Clients</text>
-            </g>
-            <!-- Bottom-right -->
-            <g>
-              <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="3.5s" begin="1.8s" repeatCount="indefinite"/>
-              <rect x="308" y="318" width="86" height="52" rx="10" fill="white" stroke="#f0ebe1" stroke-width="1"/>
-              <text x="351" y="338" font-size="15" font-weight="900" text-anchor="middle" fill="#607274" font-family="Poppins,sans-serif">5+</text>
-              <text x="351" y="355" font-size="8" text-anchor="middle" fill="#4a5568" font-family="Poppins,sans-serif">Destinations</text>
-            </g>
-          </g>
 
           <!-- Floating clouds -->
           <g>
@@ -1182,31 +1159,6 @@ footer {
   </div>
 </section>
 
-<!-- ============================================================
-     STATS STRIP
-============================================================ -->
-<div id="stats-strip">
-  <div class="container">
-    <div class="stats-row">
-      <div class="stat-item fade-up">
-        <span class="stat-num">10+</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
-      <div class="stat-item fade-up d1">
-        <span class="stat-num">12K+</span>
-        <span class="stat-label">Happy Clients</span>
-      </div>
-      <div class="stat-item fade-up d2">
-        <span class="stat-num">800+</span>
-        <span class="stat-label">Tours Completed</span>
-      </div>
-      <div class="stat-item fade-up d3">
-        <span class="stat-num">5+</span>
-        <span class="stat-label">Destinations</span>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ============================================================
      ABOUT (Sunita's photo lives here, not in hero)
@@ -1226,29 +1178,29 @@ footer {
 
       <div class="about-text fade-up d2">
         <span class="section-tag">About Me</span>
-        <h2 class="section-title">Passionate About Nepal's Beauty</h2>
-        <p class="section-subtitle">I am a passionate travel professional with over 10 years of experience in Nepal's tourism industry, specializing in inbound tours for clients from India and Bangladesh. Every journey I craft is a reflection of my deep love for this remarkable country and its people.</p>
+        <h2 class="section-title">Nepal Travel Expert With Over 10 Years of Local Experience</h2>
+        <p class="section-subtitle">I have spent over 10 years planning and managing tours across Nepal for travelers from around the world. I know this country not just as a destination but as someone who lives here, works here and genuinely wants every visitor to leave with something real.</p>
 
         <div class="about-features">
           <div class="about-feature">
             <div class="about-feature-icon"><i class="fas fa-map-marked-alt"></i></div>
             <div class="about-feature-text">
-              <h4>Personalized Itineraries</h4>
-              <p>Every trip is crafted around your unique interests, budget, and travel style.</p>
+              <h4>Custom Itineraries Built Around You</h4>
+              <p>Your interests, your pace, your budget. No templates, no one size fits all packages.</p>
             </div>
           </div>
           <div class="about-feature">
             <div class="about-feature-icon"><i class="fas fa-handshake"></i></div>
             <div class="about-feature-text">
-              <h4>Strong Local Network</h4>
-              <p>Trusted partnerships with hotels, transport providers, and local guides across Nepal.</p>
+              <h4>Trusted Local Connections Across Nepal</h4>
+              <p>Years of relationships with the best hotels, guides and transport providers in every destination.</p>
             </div>
           </div>
           <div class="about-feature">
             <div class="about-feature-icon"><i class="fas fa-shield-alt"></i></div>
             <div class="about-feature-text">
-              <h4>Safe and Smooth Travel</h4>
-              <p>Complete coordination from airport arrival to departure, worry free travel guaranteed.</p>
+              <h4>End to End Trip Management</h4>
+              <p>From the moment you land to the moment you leave, everything is coordinated and taken care of.</p>
             </div>
           </div>
         </div>
@@ -1273,8 +1225,8 @@ footer {
   <div class="container">
     <div class="services-header fade-up">
       <span class="section-tag">What I Offer</span>
-      <h2 class="section-title">Travel Services Tailored For You</h2>
-      <p class="section-subtitle">From intimate honeymoon escapes to large group expeditions, I manage every detail so you can simply enjoy the journey.</p>
+      <h2 class="section-title">Nepal Tour Services, Planned Around You</h2>
+      <p class="section-subtitle">Whether you are traveling solo, as a couple, with family or in a group, every trip I plan is built around what you actually want from Nepal.</p>
     </div>
 
     <div class="services-grid">
@@ -1290,7 +1242,7 @@ footer {
           </svg>
         </div>
         <h3>Group Tours</h3>
-        <p>Well organized group travel with complete coordination including transport, accommodation, guides, and activities all handled seamlessly.</p>
+        <p>Well coordinated group travel with everything taken care of. Transport, accommodation, guides and activities all managed from start to finish.</p>
         <a href="group-tours.html" class="service-link">Learn More &#x2192;</a>
       </div>
 
@@ -1303,7 +1255,7 @@ footer {
           </svg>
         </div>
         <h3>FIT Private Tours</h3>
-        <p>Customized private travel experiences built entirely around your schedule, preferences, and budget with complete freedom to explore.</p>
+        <p>A completely private trip built around your schedule, your interests and your pace. No shared groups, no fixed templates.</p>
         <a href="#contact" class="service-link">Learn More &#x2192;</a>
       </div>
 
@@ -1315,7 +1267,7 @@ footer {
           </svg>
         </div>
         <h3>Honeymoon Packages</h3>
-        <p>Romantic escapes crafted for couples, from Pokhara's lakeside sunsets to luxury mountain retreats in the Himalayas.</p>
+        <p>Romantic Nepal experiences for couples. Pokhara lakeside stays, mountain sunrise views and private arrangements that make the trip feel truly special.</p>
         <a href="#contact" class="service-link">Learn More &#x2192;</a>
       </div>
 
@@ -1330,7 +1282,7 @@ footer {
           </svg>
         </div>
         <h3>Pilgrimage Tours</h3>
-        <p>Spiritual journeys to Nepal's holiest sites including Muktinath, Pashupatinath, Lumbini, and Manakamana with full religious support.</p>
+        <p>Spiritual journeys to Nepal's most sacred sites including Muktinath, Pashupatinath, Lumbini and Manakamana with full religious coordination and support.</p>
         <a href="#contact" class="service-link">Learn More &#x2192;</a>
       </div>
 
@@ -1343,7 +1295,7 @@ footer {
           </svg>
         </div>
         <h3>Family Tours</h3>
-        <p>Comfortable, enjoyable, and memorable trips for the whole family with child friendly itineraries and safe travel arrangements throughout.</p>
+        <p>Comfortable and enjoyable trips for the whole family. Child friendly itineraries, safe travel arrangements and activities everyone will enjoy.</p>
         <a href="#contact" class="service-link">Learn More &#x2192;</a>
       </div>
 
@@ -1356,7 +1308,7 @@ footer {
           </svg>
         </div>
         <h3>Corporate and MICE</h3>
-        <p>Professional event and business travel management including conferences, team retreats, and incentive trips handled with precision.</p>
+        <p>Professional event and business travel management for conferences, team retreats and incentive trips. Every detail handled with care and precision.</p>
         <a href="#contact" class="service-link">Learn More &#x2192;</a>
       </div>
 
@@ -1371,8 +1323,8 @@ footer {
   <div class="container">
     <div class="destinations-header fade-up">
       <span class="section-tag">Destinations</span>
-      <h2 class="section-title">Nepal's Most Loved Places</h2>
-      <p class="section-subtitle">Every destination tells a different story. From snow capped peaks to serene valleys, I have guided travelers through Nepal's most breathtaking locations.</p>
+      <h2 class="section-title">Nepal's Most Visited Destinations</h2>
+      <p class="section-subtitle">From the temples of Kathmandu to the mountains of Mustang, I have personally guided travelers through every corner of this country.</p>
     </div>
     <div class="destinations-grid">
       <div class="dest-card fade-up d1">
@@ -1423,7 +1375,7 @@ footer {
     <div class="reviews-header fade-up">
       <span class="section-tag">Client Reviews</span>
       <h2 class="section-title">What Travelers Say</h2>
-      <p class="section-subtitle">Real stories from real travelers. Every review is a memory I helped create.</p>
+      <p class="section-subtitle">Real feedback from real travelers. Every review represents a trip I planned and a memory that will last a lifetime.</p>
     </div>
 
     <div class="reviews-carousel-wrap fade-up d1">
@@ -1440,7 +1392,7 @@ footer {
 
         <div class="review-card">
           <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <p class="review-text">Excellent service and very helpful throughout the journey. Our pilgrimage to Muktinath was spiritually fulfilling and logistically flawless. Sunita's knowledge of the region is outstanding.</p>
+          <p class="review-text">Our pilgrimage to Muktinath was everything we hoped for and more. Sunita handled every detail so we could focus entirely on the experience. Her knowledge of the region and the religious sites is genuinely impressive.</p>
           <div class="review-author">
             <div class="review-avatar">PS</div>
             <div><div class="review-name">Priya Sharma</div><div class="review-location">Mumbai, India &nbsp;&middot;&nbsp; Pilgrimage Tour</div></div>
@@ -1449,7 +1401,7 @@ footer {
 
         <div class="review-card">
           <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <p class="review-text">Highly recommended for Nepal tours, especially for Indian travelers. Our honeymoon package was magical. Pokhara at sunset and the Annapurna views were absolutely breathtaking memories.</p>
+          <p class="review-text">Sunita planned our entire honeymoon in Nepal and it was perfect. Pokhara at sunset, the Annapurna views in the morning and the private arrangements she made throughout made it feel like a trip designed just for us.</p>
           <div class="review-author">
             <div class="review-avatar">AM</div>
             <div><div class="review-name">Ananya and Mihir</div><div class="review-location">Kolkata, India &nbsp;&middot;&nbsp; Honeymoon Package</div></div>
@@ -1458,7 +1410,7 @@ footer {
 
         <div class="review-card">
           <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <p class="review-text">We came from Bangladesh with a large family group and were nervous about coordination. Sunita managed everything perfectly including transport, meals, and accommodations. A truly stress free experience!</p>
+          <p class="review-text">We traveled as a large family group and were honestly a little nervous about how it would all come together. Sunita managed everything from transport to meals to accommodation without a single issue. Completely stress free from start to finish.</p>
           <div class="review-author">
             <div class="review-avatar">FA</div>
             <div><div class="review-name">Farhan Ahmed</div><div class="review-location">Dhaka, Bangladesh &nbsp;&middot;&nbsp; Family Tour</div></div>
@@ -1474,14 +1426,6 @@ footer {
           </div>
         </div>
 
-        <div class="review-card">
-          <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <p class="review-text">From the moment we landed in Kathmandu to our departure, everything was seamless. The local knowledge and genuine care that Sunita brings to every trip is truly exceptional and unforgettable.</p>
-          <div class="review-author">
-            <div class="review-avatar">MR</div>
-            <div><div class="review-name">Meera Rao</div><div class="review-location">Bangalore, India &nbsp;&middot;&nbsp; Private Tour</div></div>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -1501,10 +1445,10 @@ footer {
 <section id="vision">
   <div class="container">
     <span class="section-tag fade-up">My Vision</span>
-    <h2 class="section-title fade-up d1">Making Nepal a World Loved Destination</h2>
-    <p class="section-subtitle fade-up d2">Travel is not just about visiting places. It is about creating lifelong memories. Every client who returns home with stories of Nepal's mountains, temples, and warmth is my greatest achievement.</p>
+    <h2 class="section-title fade-up d1">Showing the World What Nepal Truly Is</h2>
+    <p class="section-subtitle fade-up d2">Nepal is not just a destination. It is an experience that stays with you long after you leave. Every traveler I work with goes home with a story worth telling and that is what drives everything I do.</p>
     <div class="fade-up d3">
-      <a href="#contact" class="btn-white">Start Your Journey</a>
+      <a href="#contact" class="btn-white">Start Planning Your Trip</a>
     </div>
   </div>
 </section>
@@ -1516,8 +1460,8 @@ footer {
   <div class="container">
     <div class="contact-header fade-up">
       <span class="section-tag">Get In Touch</span>
-      <h2 class="section-title">Ready to Explore Nepal?</h2>
-      <p class="section-subtitle">Let's plan your perfect Nepal trip together. Reach out and I will respond within 24 hours.</p>
+      <h2 class="section-title">Ready to Plan Your Nepal Trip?</h2>
+      <p class="section-subtitle">Tell me your travel dates, group size and what you want to experience. I will get back to you within 24 hours with a plan.</p>
     </div>
 
     <div class="contact-grid">
@@ -1561,17 +1505,17 @@ footer {
           <div class="form-row">
             <div class="form-group">
               <label>Your Name</label>
-              <input type="text" placeholder="Full Name" required>
+              <input type="text" placeholder="Your full name" required>
             </div>
             <div class="form-group">
               <label>Email Address</label>
-              <input type="email" placeholder="your@email.com" required>
+              <input type="email" placeholder="Your email address" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label>Phone or WhatsApp</label>
-              <input type="tel" placeholder="+91 or +880...">
+              <input type="tel" placeholder="Your phone or WhatsApp number">
             </div>
             <div class="form-group">
               <label>Tour Type</label>
@@ -1603,7 +1547,7 @@ footer {
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea placeholder="Tell me about your travel plans, group size, budget, and any special requirements..."></textarea>
+            <textarea placeholder="Tell me about your travel plans, group size, preferred destinations and any special requirements"></textarea>
           </div>
           <button type="submit" class="form-submit-btn">
             <i class="fas fa-paper-plane"></i> Send Message
