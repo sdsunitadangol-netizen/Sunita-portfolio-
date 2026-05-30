@@ -11,9 +11,12 @@
   --cream: #F0EBE1;
   --white: #FFFFFF;
   --navy: #1a1f36;
-  --blue-grey: #607274;
-  --amber: #C8862A;
-  --amber-light: #E0A040;
+  --blue-grey: #1AAEC8;
+  --amber: #1AAEC8;
+  --amber-light: #A8CEDD;
+  --powder: #A8CEDD;
+  --btn-color: #1B5C7A;
+  --btn-hover: #164f6a;
   --body-text: #4a5568;
   --border: #e8e2d9;
   --card-shadow: 0 1px 4px rgba(0,0,0,0.07);
@@ -32,8 +35,8 @@ body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--
 .section-subtitle { font-size: 0.97rem; color: var(--body-text); line-height: 1.78; }
 
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 0.88rem; cursor: pointer; text-decoration: none; transition: var(--transition); border-radius: 4px; border: none; }
-.btn-primary { background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%); color: var(--white); box-shadow: 0 4px 16px rgba(200,134,42,0.28); }
-.btn-primary:hover { background: linear-gradient(135deg,#b5751e 0%,#c88f2a 100%); transform: translateY(-2px) scale(1.03); }
+.btn-primary { background: #1B5C7A; color: var(--white); }
+.btn-primary:hover { background: #164f6a; transform: translateY(-2px) scale(1.03); }
 .btn-outline { background: transparent; color: var(--blue-grey); border: 1.5px solid var(--blue-grey); }
 .btn-outline:hover { background: var(--blue-grey); color: var(--white); transform: translateY(-2px); }
 
@@ -46,8 +49,8 @@ body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--
 .nav-links { display: flex; list-style: none; align-items: center; gap: 34px; }
 .nav-links a { font-family: 'Poppins',sans-serif; font-size: 0.86rem; font-weight: 500; color: var(--navy); text-decoration: none; transition: var(--transition); }
 .nav-links a:hover { color: var(--amber); }
-.nav-cta { background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; box-shadow: 0 3px 14px rgba(200,134,42,0.32); }
-.nav-cta:hover { transform: scale(1.05) !important; }
+.nav-cta { background: #1B5C7A !important; color: var(--white) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; transition: all 0.3s ease !important; }
+.nav-cta:hover { background: #164f6a !important; transform: scale(1.05) !important; box-shadow: none !important; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; background: none; border: none; }
 .hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; display: block; }
 
@@ -55,7 +58,7 @@ body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--
 .page-hero { background: var(--cream); padding: 140px 0 80px; }
 .page-hero-inner { max-width: 740px; }
 .tour-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-.tour-tag { font-family: 'Poppins',sans-serif; font-size: 0.72rem; font-weight: 600; padding: 5px 14px; border-radius: 50px; background: white; color: var(--blue-grey); border: 1px solid var(--border); letter-spacing: 0.05em; }
+.tour-tag { font-family: 'Poppins',sans-serif; font-size: 0.72rem; font-weight: 600; padding: 5px 14px; border-radius: 50px; background: white; color: #1B5C7A; border: 1px solid #1AAEC8; letter-spacing: 0.05em; }
 
 /* Sections */
 .page-section { padding: 90px 0; }
@@ -68,7 +71,7 @@ body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--
 .includes-list li { display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; color: var(--navy); font-weight: 500; }
 .includes-list li:first-child { border-top: 1px solid var(--border); }
 .includes-list li .ic { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0; margin-top: 2px; }
-.ic-yes { background: rgba(200,134,42,0.12); color: var(--amber); }
+.ic-yes { background: rgba(26,174,200,0.12); color: #1AAEC8; }
 .ic-no { background: rgba(74,85,104,0.10); color: var(--body-text); }
 .excludes-list li { color: var(--body-text); font-weight: 400; }
 
@@ -76,10 +79,10 @@ body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--
 .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
 .audience-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px 20px; transition: var(--transition); }
 .audience-card:hover { border-color: var(--amber); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
-.audience-card .a-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+.audience-card .a-icon { width: 56px; height: 56px; background: rgba(168,206,221,0.18); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
 .audience-card h4 { font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--navy); }
 
-.group-note { margin-top: 32px; background: var(--white); border-left: 3px solid var(--amber); padding: 18px 22px; border-radius: 0 6px 6px 0; font-size: 0.92rem; color: var(--body-text); line-height: 1.7; }
+.group-note { margin-top: 32px; background: var(--white); border-left: 3px solid #1AAEC8; padding: 18px 22px; border-radius: 0 6px 6px 0; font-size: 0.92rem; color: var(--body-text); line-height: 1.7; }
 
 /* Pricing */
 .pricing-box { background: var(--cream); border-radius: 8px; padding: 40px; margin-top: 40px; border: 1px solid var(--border); }
@@ -96,14 +99,14 @@ details.faq-item[open] summary::after { content: '−'; }
 .faq-answer { padding: 0 0 20px; font-size: 0.92rem; color: var(--body-text); line-height: 1.78; }
 
 /* CTA */
-.page-cta { background: var(--blue-grey); padding: 90px 0; text-align: center; }
+.page-cta { background: #1B5C7A; padding: 90px 0; text-align: center; }
 .page-cta .section-title { color: var(--white); margin: 0 auto 14px; }
 .page-cta .section-subtitle { color: rgba(255,255,255,0.78); max-width: 480px; margin: 0 auto 36px; }
 .cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-.btn-white-cta { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.88rem; background: var(--white); color: var(--blue-grey); text-decoration: none; transition: var(--transition); }
-.btn-white-cta:hover { background: #f0ede8; transform: translateY(-2px); }
-.btn-outline-white { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 0.88rem; background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.6); text-decoration: none; transition: var(--transition); }
-.btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+.btn-white-cta { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.88rem; background: transparent; color: var(--white); border: 2px solid var(--white); text-decoration: none; transition: var(--transition); }
+.btn-white-cta:hover { background: #1AAEC8; border-color: #1AAEC8; transform: translateY(-2px); }
+.btn-outline-white { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 0.88rem; background: #25D366; color: var(--white); border: none; text-decoration: none; transition: var(--transition); }
+.btn-outline-white:hover { background: #1ead57; transform: translateY(-2px); }
 
 /* Footer */
 footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0 30px; }
@@ -112,7 +115,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0
 .footer-brand p { font-size: 0.84rem; line-height: 1.78; margin-bottom: 24px; }
 .social-links { display: flex; gap: 10px; }
 .social-link { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; transition: var(--transition); font-size: 0.82rem; }
-.social-link:hover { border-color: var(--amber); color: var(--amber); }
+.social-link:hover { border-color: #1AAEC8; color: #1AAEC8; }
 .footer-col h4 { font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.75rem; color: var(--white); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 20px; }
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 10px; }
@@ -121,8 +124,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0
 .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 0.79rem; }
 
 /* Floating WhatsApp */
-.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.45rem; text-decoration: none; z-index: 998; box-shadow: 0 4px 20px rgba(200,134,42,0.45); transition: var(--transition); }
-.whatsapp-float:hover { transform: scale(1.08); }
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.45rem; text-decoration: none; z-index: 998; box-shadow: 0 4px 16px rgba(37,211,102,0.35); transition: var(--transition); }
+.whatsapp-float:hover { background: #1ead57; transform: scale(1.08); }
 
 /* Mobile menu */
 .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 1001; flex-direction: column; align-items: center; justify-content: center; gap: 30px; }
@@ -234,12 +237,42 @@ footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0
     <h2 class="section-title">Who Is This For</h2>
     <p class="section-subtitle" style="max-width:560px">Group tours work beautifully for all kinds of travel groups. Here are the most common ones we organize:</p>
     <div class="audience-grid">
-      <div class="audience-card"><span class="a-icon">&#x1F46F;</span><h4>Friends Traveling Together</h4></div>
-      <div class="audience-card"><span class="a-icon">&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;</span><h4>Extended Family Groups</h4></div>
-      <div class="audience-card"><span class="a-icon">&#x1F393;</span><h4>College and Student Groups</h4></div>
-      <div class="audience-card"><span class="a-icon">&#x1F4BC;</span><h4>Corporate Teams</h4></div>
-      <div class="audience-card"><span class="a-icon">&#x1F54F;</span><h4>Pilgrimage Groups</h4></div>
-      <div class="audience-card"><span class="a-icon">&#x1F91D;</span><h4>Reunion Trips</h4></div>
+      <div class="audience-card">
+        <div class="a-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1B5C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4>Friends Traveling Together</h4>
+      </div>
+      <div class="audience-card">
+        <div class="a-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1B5C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h4>Extended Family Groups</h4>
+      </div>
+      <div class="audience-card">
+        <div class="a-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1B5C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h4>College and Student Groups</h4>
+      </div>
+      <div class="audience-card">
+        <div class="a-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1B5C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h4>Corporate Teams</h4>
+      </div>
+      <div class="audience-card">
+        <div class="a-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1B5C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        </div>
+        <h4>Pilgrimage Groups</h4>
+      </div>
+      <div class="audience-card">
+        <div class="a-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1B5C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h4>Reunion Trips</h4>
+      </div>
     </div>
     <div class="group-note">
       We work with groups of 4 to 30 people. Every group gets a private vehicle and a dedicated guide. We never mix different groups together.
