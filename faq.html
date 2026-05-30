@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root {
-  --cream: #F0EBE1; --white: #FFFFFF; --navy: #1a1f36; --blue-grey: #607274;
-  --amber: #C8862A; --amber-light: #E0A040; --body-text: #4a5568; --border: #e8e2d9;
+  --cream: #F0EBE1; --white: #FFFFFF; --navy: #1a1f36; --blue-grey: #1AAEC8;
+  --amber: #1AAEC8; --amber-light: #A8CEDD; --body-text: #4a5568; --border: #e8e2d9;
   --transition: all 0.3s ease;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,8 +27,8 @@ body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--
 .nav-links { display: flex; list-style: none; align-items: center; gap: 34px; }
 .nav-links a { font-family: 'Poppins',sans-serif; font-size: 0.86rem; font-weight: 500; color: var(--navy); text-decoration: none; transition: var(--transition); }
 .nav-links a:hover { color: var(--amber); }
-.nav-cta { background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; }
-.nav-cta:hover { transform: scale(1.05) !important; }
+.nav-cta { background: #1B5C7A !important; color: var(--white) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; transition: all 0.3s ease !important; }
+.nav-cta:hover { background: #164f6a !important; transform: scale(1.05) !important; box-shadow: none !important; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; background: none; border: none; }
 .hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; display: block; }
 
@@ -92,8 +92,8 @@ details.faq-item[open] summary { color: var(--amber); }
 }
 .faq-cta-strip h2 { font-family: 'Poppins',sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
 .faq-cta-strip p { font-size: 0.97rem; color: var(--body-text); margin-bottom: 28px; }
-.faq-cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px; border-radius: 4px; font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.9rem; background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%); color: var(--white); text-decoration: none; transition: var(--transition); box-shadow: 0 4px 16px rgba(200,134,42,0.28); }
-.faq-cta-btn:hover { background: linear-gradient(135deg,#b5751e 0%,#c88f2a 100%); transform: translateY(-2px); }
+.faq-cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px; border-radius: 4px; font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.9rem; background: #1B5C7A; color: var(--white); text-decoration: none; transition: var(--transition); }
+.faq-cta-btn:hover { background: #164f6a; transform: translateY(-2px); }
 
 footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0 30px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,0.09); }
@@ -109,8 +109,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0
 .footer-col ul li a:hover { color: var(--white); }
 .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 0.79rem; }
 
-.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.45rem; text-decoration: none; z-index: 998; box-shadow: 0 4px 20px rgba(200,134,42,0.45); transition: var(--transition); }
-.whatsapp-float:hover { transform: scale(1.08); }
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.45rem; text-decoration: none; z-index: 998; box-shadow: 0 4px 16px rgba(37,211,102,0.35); transition: var(--transition); }
+.whatsapp-float:hover { background: #1ead57; transform: scale(1.08); }
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
