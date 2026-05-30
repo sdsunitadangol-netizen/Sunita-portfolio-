@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | Sunita Dangol — Nepal Travel Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --cream: #F0EBE1; --white: #FFFFFF; --navy: #1a1f36; --blue-grey: #607274;
+  --amber: #C8862A; --amber-light: #E0A040; --body-text: #4a5568; --border: #e8e2d9;
+  --transition: all 0.3s ease;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--body-text); line-height: 1.7; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 3px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+#navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); padding: 18px 0; transition: var(--transition); }
+#navbar.scrolled { padding: 13px 0; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: 'Poppins',sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--navy); text-decoration: none; }
+.nav-logo .logo-dangol { color: #1B2B6B; }
+.nav-links { display: flex; list-style: none; align-items: center; gap: 34px; }
+.nav-links a { font-family: 'Poppins',sans-serif; font-size: 0.86rem; font-weight: 500; color: var(--navy); text-decoration: none; transition: var(--transition); }
+.nav-links a:hover { color: var(--amber); }
+.nav-cta { background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; }
+.nav-cta:hover { transform: scale(1.05) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; background: none; border: none; }
+.hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; display: block; }
+
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 1001; flex-direction: column; align-items: center; justify-content: center; gap: 30px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Poppins',sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+.mobile-close { position: absolute; top: 22px; right: 26px; background: none; border: none; color: var(--navy); font-size: 1.8rem; cursor: pointer; }
+
+.page-header { background: var(--cream); padding: 140px 0 70px; }
+.page-header .label { display: block; font-family: 'Poppins',sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue-grey); margin-bottom: 12px; }
+.page-header h1 { font-family: 'Poppins',sans-serif; font-size: clamp(2rem,4vw,3rem); font-weight: 900; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 10px; }
+.page-header p { font-size: 0.97rem; color: var(--body-text); max-width: 540px; }
+
+.faq-content { padding: 80px 0; }
+.faq-content .inner { max-width: 760px; margin: 0 auto; }
+
+.faq-group { margin-bottom: 52px; }
+.faq-group-title { font-family: 'Poppins',sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue-grey); margin-bottom: 22px; padding-bottom: 10px; border-bottom: 2px solid var(--amber); display: inline-block; }
+
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-of-type { border-top: 1px solid var(--border); }
+details.faq-item summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 0;
+  cursor: pointer;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 600;
+  font-size: 0.97rem;
+  color: var(--navy);
+  line-height: 1.45;
+}
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary .toggle-icon {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  color: var(--amber);
+  font-weight: 300;
+  margin-top: 2px;
+  transition: var(--transition);
+}
+details.faq-item[open] summary .toggle-icon { background: var(--amber); color: var(--white); border-color: var(--amber); }
+details.faq-item[open] summary { color: var(--amber); }
+.faq-answer { padding: 0 0 22px; font-size: 0.95rem; color: var(--body-text); line-height: 1.82; max-width: 680px; }
+
+/* CTA strip */
+.faq-cta-strip {
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  padding: 70px 0;
+  text-align: center;
+}
+.faq-cta-strip h2 { font-family: 'Poppins',sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+.faq-cta-strip p { font-size: 0.97rem; color: var(--body-text); margin-bottom: 28px; }
+.faq-cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px; border-radius: 4px; font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.9rem; background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%); color: var(--white); text-decoration: none; transition: var(--transition); box-shadow: 0 4px 16px rgba(200,134,42,0.28); }
+.faq-cta-btn:hover { background: linear-gradient(135deg,#b5751e 0%,#c88f2a 100%); transform: translateY(-2px); }
+
+footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,0.09); }
+.footer-brand h3 { font-family: 'Poppins',sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+.footer-brand p { font-size: 0.84rem; line-height: 1.78; margin-bottom: 24px; }
+.social-links { display: flex; gap: 10px; }
+.social-link { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; transition: var(--transition); font-size: 0.82rem; }
+.social-link:hover { border-color: var(--amber); color: var(--amber); }
+.footer-col h4 { font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.75rem; color: var(--white); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: rgba(255,255,255,0.52); text-decoration: none; font-size: 0.84rem; transition: var(--transition); }
+.footer-col ul li a:hover { color: var(--white); }
+.footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 0.79rem; }
+
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.45rem; text-decoration: none; z-index: 998; box-shadow: 0 4px 20px rgba(200,134,42,0.45); transition: var(--transition); }
+.whatsapp-float:hover { transform: scale(1.08); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<a href="https://wa.me/9779851048721" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sunita <span class="logo-dangol">Dangol</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#destinations">Destinations</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Plan Your Trip</a></li>
+      </ul>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&#x2715;</button>
+  <a href="index.html#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+  <a href="index.html#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
+  <a href="index.html#destinations" onclick="document.getElementById('mobileMenu').classList.remove('open')">Destinations</a>
+  <a href="index.html#reviews" onclick="document.getElementById('mobileMenu').classList.remove('open')">Reviews</a>
+  <a href="index.html#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <span class="label">Help Center</span>
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything you need to know before planning your Nepal trip. Still have a question? Message me directly and I will respond within 24 hours.</p>
+  </div>
+</div>
+
+<div class="faq-content">
+  <div class="container">
+    <div class="inner">
+
+      <div class="faq-group">
+        <span class="faq-group-title">Getting Started</span>
+
+        <details class="faq-item">
+          <summary>How do I start planning my trip to Nepal? <span class="toggle-icon">+</span></summary>
+          <p class="faq-answer">Send me a message using the contact form or WhatsApp with your travel dates, group size, and what kind of trip you are looking for. I will respond within 24 hours with options and a quote.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How far in advance should I book? <span class="toggle-icon">+</span></summary>
+          <p class="faq-answer">For group tours of 10 or more, book at least 2 to 4 weeks ahead. For travel during October and November which is Nepal's peak trekking season, book 4 to 6 weeks in advance to secure permits and accommodation.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I customize my itinerary? <span class="toggle-icon">+</span></summary>
+          <p class="faq-answer">Completely. Every trip is built around what you actually want. Destinations, duration, pace, and activities are all flexible. There are no fixed packages.</p>
+        </details>
+      </div>
+
+      <div class="faq-group">
+        <span class="faq-group-title">Visas and Entry</span>
+
+        <details class="faq-item">
+          <summary>Do Indian travelers need a visa to enter Nepal? <span class="toggle-icon">+</span></summary>
+          <p class="faq-answer">No. Indian nationals can enter Nepal with any valid government issued photo ID such as an Aadhaar card, voter ID, or passport. No visa is required.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do travelers from Bangladesh need a visa? <span class="toggle-icon">+</span></summary>
+          <p class="faq-answer">Yes. Bangladeshi nationals require a visa to enter Nepal. A visa on arrival is available at Tribhuvan International Airport in Kathmandu for a fee.</p>
+        </details>
+      </div>
+
+      <div class="faq-group">
+        <span class="faq-group-title">Tour Details</span>
+
+        <details class="faq-item">
+          <summary>What is included in the tour price? <span class="toggle-icon">+</span></summary>
+          <p class="faq-answer">This depends on the tour type. Generally included: airport pickup and drop off, accommodation, private vehicle, local guide, entry permits, and activity fees. Excluded: international flights, Nepal visa fees, personal expenses, tips, and travel insurance.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is Nepal safe for solo female travelers? <span class="toggle-icon">+</span></summary>
+          <p class="faq-answer">Yes. Nepal is considered one of the safer destinations in Asia for solo female travelers. I have helped many solo women travelers from India and Bangladesh experience Nepal safely and comfortably.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I pay? <span class="toggle-icon">+</span></summary>
+          <p class="faq-answer">Payment details and methods will be confirmed once your trip is finalized. I work with common payment methods accessible from India and Bangladesh.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What if my plans change after booking? <span class="toggle-icon">+</span></summary>
+          <p class="faq-answer">I understand travel plans can change. Reach out as early as possible and we will work together to adjust the itinerary or reschedule where possible.</p>
+        </details>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="faq-cta-strip">
+  <div class="container">
+    <h2>Still have a question?</h2>
+    <p>Message me on WhatsApp or use the contact form. I respond within 24 hours.</p>
+    <a href="index.html#contact" class="faq-cta-btn">Get In Touch</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Sunita Dangol</h3>
+        <p>Nepal's trusted inbound travel specialist with over 10 years of creating unforgettable journeys. Based in Kathmandu, serving travelers from India, Bangladesh, and beyond.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/9779851048721" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="group-tours.html">Group Tours</a></li>
+          <li><a href="index.html#services">FIT Private Tours</a></li>
+          <li><a href="index.html#services">Honeymoon Packages</a></li>
+          <li><a href="index.html#services">Pilgrimage Tours</a></li>
+          <li><a href="index.html#services">Family Tours</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="index.html#destinations">Kathmandu</a></li>
+          <li><a href="index.html#destinations">Pokhara</a></li>
+          <li><a href="index.html#destinations">Chitwan</a></li>
+          <li><a href="index.html#destinations">Everest Region</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html#about">About Me</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Sunita Dangol. All rights reserved.</span>
+      <span>GoNepal Explore</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+
+  /* Keep only one FAQ open at a time */
+  document.querySelectorAll('details.faq-item').forEach(d => {
+    d.addEventListener('toggle', () => {
+      if (d.open) {
+        document.querySelectorAll('details.faq-item').forEach(other => {
+          if (other !== d) other.removeAttribute('open');
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group Tours in Nepal | Sunita Dangol</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --cream: #F0EBE1;
+  --white: #FFFFFF;
+  --navy: #1a1f36;
+  --blue-grey: #607274;
+  --amber: #C8862A;
+  --amber-light: #E0A040;
+  --body-text: #4a5568;
+  --border: #e8e2d9;
+  --card-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  --transition: all 0.3s ease;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--body-text); overflow-x: hidden; line-height: 1.7; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 3px; }
+
+.container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+.section-tag { display: block; font-family: 'Poppins',sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue-grey); margin-bottom: 12px; }
+.section-title { font-family: 'Poppins',sans-serif; font-size: clamp(1.9rem,3.5vw,2.7rem); font-weight: 800; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 14px; }
+.section-subtitle { font-size: 0.97rem; color: var(--body-text); line-height: 1.78; }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 0.88rem; cursor: pointer; text-decoration: none; transition: var(--transition); border-radius: 4px; border: none; }
+.btn-primary { background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%); color: var(--white); box-shadow: 0 4px 16px rgba(200,134,42,0.28); }
+.btn-primary:hover { background: linear-gradient(135deg,#b5751e 0%,#c88f2a 100%); transform: translateY(-2px) scale(1.03); }
+.btn-outline { background: transparent; color: var(--blue-grey); border: 1.5px solid var(--blue-grey); }
+.btn-outline:hover { background: var(--blue-grey); color: var(--white); transform: translateY(-2px); }
+
+/* Navbar */
+#navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); padding: 18px 0; transition: var(--transition); }
+#navbar.scrolled { padding: 13px 0; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: 'Poppins',sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--navy); text-decoration: none; letter-spacing: -0.3px; }
+.nav-logo .logo-dangol { color: #1B2B6B; }
+.nav-links { display: flex; list-style: none; align-items: center; gap: 34px; }
+.nav-links a { font-family: 'Poppins',sans-serif; font-size: 0.86rem; font-weight: 500; color: var(--navy); text-decoration: none; transition: var(--transition); }
+.nav-links a:hover { color: var(--amber); }
+.nav-cta { background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; box-shadow: 0 3px 14px rgba(200,134,42,0.32); }
+.nav-cta:hover { transform: scale(1.05) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; background: none; border: none; }
+.hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; display: block; }
+
+/* Hero */
+.page-hero { background: var(--cream); padding: 140px 0 80px; }
+.page-hero-inner { max-width: 740px; }
+.tour-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.tour-tag { font-family: 'Poppins',sans-serif; font-size: 0.72rem; font-weight: 600; padding: 5px 14px; border-radius: 50px; background: white; color: var(--blue-grey); border: 1px solid var(--border); letter-spacing: 0.05em; }
+
+/* Sections */
+.page-section { padding: 90px 0; }
+.page-section.bg-cream { background: var(--cream); }
+.page-section.bg-white { background: var(--white); }
+
+/* Includes / excludes */
+.includes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
+.includes-list { list-style: none; }
+.includes-list li { display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; color: var(--navy); font-weight: 500; }
+.includes-list li:first-child { border-top: 1px solid var(--border); }
+.includes-list li .ic { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0; margin-top: 2px; }
+.ic-yes { background: rgba(200,134,42,0.12); color: var(--amber); }
+.ic-no { background: rgba(74,85,104,0.10); color: var(--body-text); }
+.excludes-list li { color: var(--body-text); font-weight: 400; }
+
+/* Who is this for */
+.audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+.audience-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px 20px; transition: var(--transition); }
+.audience-card:hover { border-color: var(--amber); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+.audience-card .a-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+.audience-card h4 { font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+
+.group-note { margin-top: 32px; background: var(--white); border-left: 3px solid var(--amber); padding: 18px 22px; border-radius: 0 6px 6px 0; font-size: 0.92rem; color: var(--body-text); line-height: 1.7; }
+
+/* Pricing */
+.pricing-box { background: var(--cream); border-radius: 8px; padding: 40px; margin-top: 40px; border: 1px solid var(--border); }
+.pricing-box p { font-size: 1rem; color: var(--body-text); line-height: 1.8; }
+
+/* FAQ accordion */
+.faq-list { margin-top: 40px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+details.faq-item summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--navy); }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::after { content: '+'; font-size: 1.4rem; color: var(--amber); font-weight: 300; flex-shrink: 0; margin-left: 12px; }
+details.faq-item[open] summary::after { content: '−'; }
+.faq-answer { padding: 0 0 20px; font-size: 0.92rem; color: var(--body-text); line-height: 1.78; }
+
+/* CTA */
+.page-cta { background: var(--blue-grey); padding: 90px 0; text-align: center; }
+.page-cta .section-title { color: var(--white); margin: 0 auto 14px; }
+.page-cta .section-subtitle { color: rgba(255,255,255,0.78); max-width: 480px; margin: 0 auto 36px; }
+.cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.btn-white-cta { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.88rem; background: var(--white); color: var(--blue-grey); text-decoration: none; transition: var(--transition); }
+.btn-white-cta:hover { background: #f0ede8; transform: translateY(-2px); }
+.btn-outline-white { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 0.88rem; background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.6); text-decoration: none; transition: var(--transition); }
+.btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+/* Footer */
+footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,0.09); }
+.footer-brand h3 { font-family: 'Poppins',sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+.footer-brand p { font-size: 0.84rem; line-height: 1.78; margin-bottom: 24px; }
+.social-links { display: flex; gap: 10px; }
+.social-link { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; transition: var(--transition); font-size: 0.82rem; }
+.social-link:hover { border-color: var(--amber); color: var(--amber); }
+.footer-col h4 { font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.75rem; color: var(--white); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: rgba(255,255,255,0.52); text-decoration: none; font-size: 0.84rem; transition: var(--transition); }
+.footer-col ul li a:hover { color: var(--white); }
+.footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 0.79rem; }
+
+/* Floating WhatsApp */
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,var(--amber) 0%,var(--amber-light) 100%); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.45rem; text-decoration: none; z-index: 998; box-shadow: 0 4px 20px rgba(200,134,42,0.45); transition: var(--transition); }
+.whatsapp-float:hover { transform: scale(1.08); }
+
+/* Mobile menu */
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 1001; flex-direction: column; align-items: center; justify-content: center; gap: 30px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Poppins',sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+.mobile-menu a:hover { color: var(--amber); }
+.mobile-close { position: absolute; top: 22px; right: 26px; background: none; border: none; color: var(--navy); font-size: 1.8rem; cursor: pointer; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .includes-grid { grid-template-columns: 1fr; gap: 32px; }
+  .audience-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .cta-btns { flex-direction: column; align-items: center; }
+}
+@media (max-width: 480px) {
+  .audience-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a href="https://wa.me/9779851048721" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sunita <span class="logo-dangol">Dangol</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#destinations">Destinations</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Plan Your Trip</a></li>
+      </ul>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&#x2715;</button>
+  <a href="index.html#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+  <a href="index.html#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
+  <a href="index.html#destinations" onclick="document.getElementById('mobileMenu').classList.remove('open')">Destinations</a>
+  <a href="index.html#reviews" onclick="document.getElementById('mobileMenu').classList.remove('open')">Reviews</a>
+  <a href="index.html#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+</div>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <span class="section-tag">Service</span>
+      <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.4rem)">Group Tours in Nepal</h1>
+      <p style="font-size:1.1rem;color:var(--body-text);line-height:1.75;margin-bottom:16px;font-weight:500">Traveling with a group is exciting. Managing one is not. We handle everything so your group just shows up and enjoys Nepal.</p>
+      <p style="font-size:0.97rem;color:var(--body-text);line-height:1.78;max-width:620px">From airport pickup to the final drop off, every detail is taken care of. Transport, accommodation, guides, activities and permits are all sorted before you land.</p>
+      <div class="tour-tags">
+        <span class="tour-tag">Cultural Tours</span>
+        <span class="tour-tag">Pilgrimage</span>
+        <span class="tour-tag">Adventure</span>
+        <span class="tour-tag">Wildlife</span>
+        <span class="tour-tag">Sightseeing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What is included -->
+<section class="page-section bg-white">
+  <div class="container">
+    <span class="section-tag">Inclusions</span>
+    <h2 class="section-title">What Every Group Tour Includes</h2>
+    <div class="includes-grid">
+      <div>
+        <ul class="includes-list">
+          <li><span class="ic ic-yes"><i class="fas fa-check"></i></span>Airport pickup and drop off for the whole group</li>
+          <li><span class="ic ic-yes"><i class="fas fa-check"></i></span>Dedicated English speaking local guide throughout</li>
+          <li><span class="ic ic-yes"><i class="fas fa-check"></i></span>Private vehicle between all destinations</li>
+          <li><span class="ic ic-yes"><i class="fas fa-check"></i></span>Hotel accommodation based on your preference</li>
+          <li><span class="ic ic-yes"><i class="fas fa-check"></i></span>All entry permits and activity fees</li>
+          <li><span class="ic ic-yes"><i class="fas fa-check"></i></span>24 hour WhatsApp support during the trip</li>
+        </ul>
+      </div>
+      <div>
+        <p class="section-tag" style="margin-bottom:18px">Not included</p>
+        <ul class="includes-list excludes-list">
+          <li><span class="ic ic-no"><i class="fas fa-minus"></i></span>International flights</li>
+          <li><span class="ic ic-no"><i class="fas fa-minus"></i></span>Nepal visa fee</li>
+          <li><span class="ic ic-no"><i class="fas fa-minus"></i></span>Personal expenses and tips</li>
+          <li><span class="ic ic-no"><i class="fas fa-minus"></i></span>Travel insurance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who is this for -->
+<section class="page-section bg-cream">
+  <div class="container">
+    <span class="section-tag">Ideal For</span>
+    <h2 class="section-title">Who Is This For</h2>
+    <p class="section-subtitle" style="max-width:560px">Group tours work beautifully for all kinds of travel groups. Here are the most common ones we organize:</p>
+    <div class="audience-grid">
+      <div class="audience-card"><span class="a-icon">&#x1F46F;</span><h4>Friends Traveling Together</h4></div>
+      <div class="audience-card"><span class="a-icon">&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;</span><h4>Extended Family Groups</h4></div>
+      <div class="audience-card"><span class="a-icon">&#x1F393;</span><h4>College and Student Groups</h4></div>
+      <div class="audience-card"><span class="a-icon">&#x1F4BC;</span><h4>Corporate Teams</h4></div>
+      <div class="audience-card"><span class="a-icon">&#x1F54F;</span><h4>Pilgrimage Groups</h4></div>
+      <div class="audience-card"><span class="a-icon">&#x1F91D;</span><h4>Reunion Trips</h4></div>
+    </div>
+    <div class="group-note">
+      We work with groups of 4 to 30 people. Every group gets a private vehicle and a dedicated guide. We never mix different groups together.
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="page-section bg-white">
+  <div class="container">
+    <span class="section-tag">Pricing</span>
+    <h2 class="section-title">Pricing</h2>
+    <div class="pricing-box">
+      <p>Pricing depends on your group size, destinations, trip duration and preferred accommodation. There is no fixed rate because every group tour is planned specifically for you.</p>
+      <p style="margin-top:14px">Share your travel dates and group size with us and we will send you a detailed quote within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="page-section bg-cream">
+  <div class="container" style="max-width:760px">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How early should we book?</summary>
+        <p class="faq-answer">At least 2 to 4 weeks ahead for groups of 10 or more. If you are traveling between October and November, book earlier as that is Nepal's peak season and accommodation fills up quickly.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can we customize our itinerary?</summary>
+        <p class="faq-answer">Completely. We build every group tour around what your group actually wants. Destinations, pace, and activities are all flexible. There are no fixed packages.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do Indian travelers need a visa?</summary>
+        <p class="faq-answer">No. Indian nationals can enter Nepal with any valid government issued photo ID. Most other nationalities get a visa on arrival at Kathmandu airport.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is Nepal safe for large groups?</summary>
+        <p class="faq-answer">Yes. Nepal is one of the most group friendly destinations in Asia. Our guides are trained in first aid and we recommend travel insurance that covers medical evacuation.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <div class="container">
+    <span class="section-tag" style="color:rgba(255,255,255,0.6);display:block;text-align:center">Get Started</span>
+    <h2 class="section-title">Plan Your Group Trip to Nepal</h2>
+    <p class="section-subtitle">Tell us your group size and travel dates. We will take it from there.</p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-white-cta">Get a Free Quote &#x2197;</a>
+      <a href="https://wa.me/9779851048721" class="btn-outline-white" target="_blank" rel="noopener">WhatsApp Us &#x2197;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Sunita Dangol</h3>
+        <p>Nepal's trusted inbound travel specialist with over 10 years of creating unforgettable journeys. Based in Kathmandu, serving travelers from India, Bangladesh, and beyond.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/9779851048721" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="group-tours.html">Group Tours</a></li>
+          <li><a href="index.html#services">FIT Private Tours</a></li>
+          <li><a href="index.html#services">Honeymoon Packages</a></li>
+          <li><a href="index.html#services">Pilgrimage Tours</a></li>
+          <li><a href="index.html#services">Family Tours</a></li>
+          <li><a href="index.html#services">Corporate and MICE</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="index.html#destinations">Kathmandu</a></li>
+          <li><a href="index.html#destinations">Pokhara</a></li>
+          <li><a href="index.html#destinations">Chitwan</a></li>
+          <li><a href="index.html#destinations">Muktinath</a></li>
+          <li><a href="index.html#destinations">Lumbini</a></li>
+          <li><a href="index.html#destinations">Everest Region</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html#about">About Me</a></li>
+          <li><a href="index.html#reviews">Client Reviews</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Sunita Dangol. All rights reserved.</span>
+      <span>GoNepal Explore</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+</script>
+</body>
+</html>
