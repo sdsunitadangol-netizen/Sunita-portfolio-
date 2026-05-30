@@ -54,6 +54,14 @@ body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; background: none; border: none; }
 .hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; display: block; }
 
+/* Navbar dropdown */
+.nav-dropdown-wrap { position: relative; }
+.nav-dropdown { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: #ffffff; border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 4px 18px rgba(0,0,0,0.09); list-style: none; min-width: 168px; padding: 6px 0; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; z-index: 200; }
+.nav-dropdown-wrap:hover .nav-dropdown { opacity: 1; visibility: visible; }
+.nav-dropdown li a { display: block; padding: 9px 18px; font-family: 'Poppins',sans-serif; font-size: 0.84rem; font-weight: 500; color: var(--navy); text-decoration: none; white-space: nowrap; transition: background 0.18s ease; }
+.nav-dropdown li a:hover { background: #A8CEDD; color: var(--navy); }
+.mobile-menu-sub { font-size: 1rem !important; color: var(--blue-grey) !important; }
+
 /* Hero */
 .page-hero { background: var(--cream); padding: 140px 0 80px; }
 .page-hero-inner { max-width: 740px; }
@@ -122,6 +130,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0
 .footer-col ul li a { color: rgba(255,255,255,0.52); text-decoration: none; font-size: 0.84rem; transition: var(--transition); }
 .footer-col ul li a:hover { color: var(--white); }
 .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 0.79rem; }
+.footer-gonepal-link { color: rgba(255,255,255,0.58); text-decoration: none; transition: var(--transition); }
+.footer-gonepal-link:hover { color: rgba(255,255,255,0.9); text-decoration: underline; }
 
 /* Floating WhatsApp */
 .whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.45rem; text-decoration: none; z-index: 998; box-shadow: 0 4px 16px rgba(37,211,102,0.35); transition: var(--transition); }
@@ -163,7 +173,13 @@ footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#destinations">Destinations</a></li>
         <li><a href="index.html#reviews">Reviews</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li class="nav-dropdown-wrap">
+          <a href="index.html#contact">Contact</a>
+          <ul class="nav-dropdown">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </li>
         <li><a href="index.html#contact" class="nav-cta">Plan Your Trip</a></li>
       </ul>
       <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
@@ -180,6 +196,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0
   <a href="index.html#destinations" onclick="document.getElementById('mobileMenu').classList.remove('open')">Destinations</a>
   <a href="index.html#reviews" onclick="document.getElementById('mobileMenu').classList.remove('open')">Reviews</a>
   <a href="index.html#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+  <a href="privacy.html" onclick="document.getElementById('mobileMenu').classList.remove('open')" class="mobile-menu-sub">Privacy Policy</a>
+  <a href="faq.html" onclick="document.getElementById('mobileMenu').classList.remove('open')" class="mobile-menu-sub">FAQ</a>
 </div>
 
 <!-- Hero -->
@@ -336,12 +354,12 @@ footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Sunita Dangol</h3>
-        <p>Nepal's trusted inbound travel specialist with over 10 years of creating unforgettable journeys. Based in Kathmandu, serving travelers from India, Bangladesh, and beyond.</p>
+        <p>Nepal's trusted inbound travel specialist with over 10 years of creating unforgettable journeys.</p>
         <div class="social-links">
-          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1EWqjqeZUh/" class="social-link" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/sunitadangol__?igsh=MW15cHZwZXU0MTB3Zg==" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           <a href="https://wa.me/9779851048721" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/in/sunita-dangol-0449b0197" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
       <div class="footer-col">
@@ -379,7 +397,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.58); padding: 72px 0
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Sunita Dangol. All rights reserved.</span>
-      <span>GoNepal Explore</span>
+      <span><a href="https://gonepalexplore.com" target="_blank" rel="noopener" class="footer-gonepal-link">GoNepal Explore</a></span>
     </div>
   </div>
 </footer>

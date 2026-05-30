@@ -205,6 +205,40 @@ body {
   transition: var(--transition);
 }
 
+/* Navbar dropdown */
+.nav-dropdown-wrap { position: relative; }
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+  list-style: none;
+  min-width: 168px;
+  padding: 6px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 200;
+}
+.nav-dropdown-wrap:hover .nav-dropdown { opacity: 1; visibility: visible; }
+.nav-dropdown li a {
+  display: block;
+  padding: 9px 18px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.18s ease;
+}
+.nav-dropdown li a:hover { background: #A8CEDD; color: var(--navy); }
+.mobile-menu-sub { font-size: 1rem !important; color: var(--blue-grey) !important; }
+
 /* ============================================================
    HERO
 ============================================================ */
@@ -907,6 +941,8 @@ footer {
   align-items: center;
   font-size: 0.79rem;
 }
+.footer-gonepal-link { color: rgba(255,255,255,0.58); text-decoration: none; transition: var(--transition); }
+.footer-gonepal-link:hover { color: rgba(255,255,255,0.9); text-decoration: underline; }
 
 /* ============================================================
    MOBILE MENU
@@ -1001,7 +1037,13 @@ footer {
         <li><a href="#services">Services</a></li>
         <li><a href="#destinations">Destinations</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li class="nav-dropdown-wrap">
+          <a href="#contact">Contact</a>
+          <ul class="nav-dropdown">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </li>
         <li><a href="#contact" class="nav-cta">Plan Your Trip</a></li>
       </ul>
       <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
@@ -1019,6 +1061,8 @@ footer {
   <a href="#destinations" onclick="closeMenu()">Destinations</a>
   <a href="#reviews" onclick="closeMenu()">Reviews</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="privacy.html" onclick="closeMenu()" class="mobile-menu-sub">Privacy Policy</a>
+  <a href="faq.html" onclick="closeMenu()" class="mobile-menu-sub">FAQ</a>
   <a href="#contact" class="btn btn-primary" onclick="closeMenu()">Plan Your Trip</a>
 </div>
 
@@ -1497,25 +1541,26 @@ footer {
       </div>
 
       <div class="fade-up d2">
-        <form onsubmit="handleFormSubmit(event)">
+        <form action="https://formspree.io/f/mgoqqqed" method="POST">
+          <input type="hidden" name="_next" value="https://sunita-dangol.com.np/#contact">
           <div class="form-row">
             <div class="form-group">
               <label>Your Name</label>
-              <input type="text" placeholder="Your full name" required>
+              <input type="text" name="name" placeholder="Your full name" required>
             </div>
             <div class="form-group">
               <label>Email Address</label>
-              <input type="email" placeholder="Your email address" required>
+              <input type="email" name="email" placeholder="Your email address" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label>Phone or WhatsApp</label>
-              <input type="tel" placeholder="Your phone or WhatsApp number">
+              <input type="tel" name="phone" placeholder="Your phone or WhatsApp number">
             </div>
             <div class="form-group">
               <label>Tour Type</label>
-              <select id="tourType" onchange="toggleCustom(this)">
+              <select id="tourType" name="tour_type" onchange="toggleCustom(this)">
                 <option>Group Tour</option>
                 <option>Private Tour</option>
                 <option>Honeymoon Package</option>
@@ -1529,21 +1574,21 @@ footer {
           <!-- Custom requirements (shown only when "Customize Your Tour" is selected) -->
           <div class="form-group" id="customGroup" style="display:none">
             <label>Tell Us Your Custom Requirements</label>
-            <textarea placeholder="Describe what kind of trip you are looking for, your interests, budget, and anything else that matters to you..."></textarea>
+            <textarea name="custom_requirements" placeholder="Describe what kind of trip you are looking for, your interests, budget, and anything else that matters to you..."></textarea>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label>Departure Date</label>
-              <input type="date">
+              <input type="date" name="departure_date">
             </div>
             <div class="form-group">
               <label>Return Date</label>
-              <input type="date">
+              <input type="date" name="return_date">
             </div>
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea placeholder="Tell me about your travel plans, group size, preferred destinations and any special requirements"></textarea>
+            <textarea name="message" placeholder="Tell me about your travel plans, group size, preferred destinations and any special requirements"></textarea>
           </div>
           <button type="submit" class="form-submit-btn">
             <i class="fas fa-paper-plane"></i> Send Message
@@ -1599,12 +1644,12 @@ footer {
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Sunita Dangol</h3>
-        <p>Nepal's trusted inbound travel specialist with over 10 years of creating unforgettable journeys. Based in Kathmandu, serving travelers from India, Bangladesh, and beyond.</p>
+        <p>Nepal's trusted inbound travel specialist with over 10 years of creating unforgettable journeys.</p>
         <div class="social-links">
-          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1EWqjqeZUh/" class="social-link" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/sunitadangol__?igsh=MW15cHZwZXU0MTB3Zg==" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           <a href="https://wa.me/9779851048721" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/in/sunita-dangol-0449b0197" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
 
@@ -1647,7 +1692,7 @@ footer {
 
     <div class="footer-bottom">
       <span>&copy; 2026 Sunita Dangol. All rights reserved.</span>
-      <span>GoNepal Explore</span>
+      <span><a href="https://gonepalexplore.com" target="_blank" rel="noopener" class="footer-gonepal-link">GoNepal Explore</a></span>
     </div>
   </div>
 </footer>
@@ -1727,20 +1772,6 @@ footer {
       sel.value === 'Customize Your Tour' ? 'block' : 'none';
   }
 
-  /* Form submit */
-  function handleFormSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit-btn');
-    const orig = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent! I will reply soon.';
-    btn.style.background = '#1ead57';
-    setTimeout(() => {
-      btn.innerHTML = orig;
-      btn.style.background = '';
-      e.target.reset();
-      document.getElementById('customGroup').style.display = 'none';
-    }, 4000);
-  }
 </script>
 </body>
 </html>
