@@ -1124,45 +1124,30 @@ footer {
           <!-- Globe border -->
           <circle cx="200" cy="235" r="153" fill="none" stroke="#1AAEC8" stroke-width="1.2" opacity="0.25"/>
 
-          <!-- Location dot: Kathmandu -->
-          <circle cx="218" cy="245" r="5" fill="#1AAEC8"/>
-          <circle cx="218" cy="245" r="5" fill="none" stroke="#1AAEC8" stroke-width="1.5">
-            <animate attributeName="r" from="5" to="17" dur="2.3s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from="0.7" to="0" dur="2.3s" repeatCount="indefinite"/>
-          </circle>
-          <text x="226" y="242" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Kathmandu</text>
+<!-- Location dot: Kathmandu -->
+<image href="kathmandu.JPG" x="208" y="235" width="20" height="20" clip-path="url(#circleKathmandu)" style="cursor:pointer; transition: transform 0.2s ease; transform-origin: 218px 245px;" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'"/>
+<clipPath id="circleKathmandu"><circle cx="218" cy="245" r="10"/></clipPath>
+<text x="226" y="242" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Kathmandu</text>
 
-          <!-- Location dot: Pokhara -->
-          <circle cx="167" cy="260" r="5" fill="#E05A2B"/>
-          <circle cx="167" cy="260" r="5" fill="none" stroke="#E05A2B" stroke-width="1.5">
-            <animate attributeName="r" from="5" to="17" dur="2.3s" begin="0.7s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from="0.7" to="0" dur="2.3s" begin="0.7s" repeatCount="indefinite"/>
-          </circle>
-          <text x="96" y="257" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Pokhara</text>
+<!-- Location dot: Pokhara -->
+<image href="pokhara.png" x="157" y="250" width="20" height="20" clip-path="url(#circlePokhara)" style="cursor:pointer; transition: transform 0.2s ease; transform-origin: 167px 260px;" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'"/>
+<clipPath id="circlePokhara"><circle cx="167" cy="260" r="10"/></clipPath>
+<text x="96" y="257" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Pokhara</text>
 
-          <!-- Location dot: Everest -->
-          <circle cx="243" cy="218" r="5" fill="#1B5C7A"/>
-          <circle cx="243" cy="218" r="5" fill="none" stroke="#1B5C7A" stroke-width="1.5">
-            <animate attributeName="r" from="5" to="17" dur="2.3s" begin="1.4s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from="0.7" to="0" dur="2.3s" begin="1.4s" repeatCount="indefinite"/>
-          </circle>
-          <text x="250" y="215" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Everest</text>
+<!-- Location dot: Everest -->
+<image href="Mountain.webp" x="233" y="208" width="20" height="20" clip-path="url(#circleEverest)" style="cursor:pointer; transition: transform 0.2s ease; transform-origin: 243px 218px;" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'"/>
+<clipPath id="circleEverest"><circle cx="243" cy="218" r="10"/></clipPath>
+<text x="250" y="215" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Everest</text>
 
-          <!-- Location dot: Lumbini -->
-          <circle cx="196" cy="283" r="5" fill="#C8862A"/>
-          <circle cx="196" cy="283" r="5" fill="none" stroke="#C8862A" stroke-width="1.5">
-            <animate attributeName="r" from="5" to="17" dur="2.3s" begin="2.1s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from="0.7" to="0" dur="2.3s" begin="2.1s" repeatCount="indefinite"/>
-          </circle>
-          <text x="204" y="280" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Lumbini</text>
+<!-- Location dot: Lumbini -->
+<image href="Lumbini.webp" x="186" y="273" width="20" height="20" clip-path="url(#circleLumbini)" style="cursor:pointer; transition: transform 0.2s ease; transform-origin: 196px 283px;" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'"/>
+<clipPath id="circleLumbini"><circle cx="196" cy="283" r="10"/></clipPath>
+<text x="204" y="280" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Lumbini</text>
 
-          <!-- Location dot: Chitwan -->
-          <circle cx="225" cy="265" r="5" fill="#2ECC71"/>
-          <circle cx="225" cy="265" r="5" fill="none" stroke="#2ECC71" stroke-width="1.5">
-            <animate attributeName="r" from="5" to="17" dur="2.3s" begin="2.8s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from="0.7" to="0" dur="2.3s" begin="2.8s" repeatCount="indefinite"/>
-          </circle>
-          <text x="232" y="262" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Chitwan</text>
+<!-- Location dot: Chitwan -->
+<image href="chitwan.webp" x="215" y="255" width="20" height="20" clip-path="url(#circleChitwan)" style="cursor:pointer; transition: transform 0.2s ease; transform-origin: 225px 265px;" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'"/>
+<clipPath id="circleChitwan"><circle cx="225" cy="265" r="10"/></clipPath>
+<text x="232" y="262" font-size="9" fill="#1a1f36" font-family="Poppins,sans-serif" font-weight="700">Chitwan</text>
 
           <!-- Plane orbit path -->
           <ellipse cx="200" cy="235" rx="172" ry="57" fill="none" stroke="#1AAEC8" stroke-width="1" stroke-dasharray="5,5" opacity="0.30" id="porbit"/>
